@@ -34,6 +34,10 @@
 		.header > li{
 			float:left;
 		}
+		#notice{
+			width:950px;
+			overflow:hidden;
+		}
 		.notice{
 			font-size:80%;
 			width:375px;
@@ -96,7 +100,9 @@
 	<div id="header">
 		<ul class="header">
 			<li><img src="images/a15.png" alt="photo"></li>
-			<li class="notice">【温馨提示】最近有不少不法分子在网上骗人，请大家注意！！！</li>
+			<li id="notice">
+				<span class="notice">【温馨提示】最近有不少不法分子在网上骗人，请大家注意！！！</span>
+				</li>
 		</ul>
 	</div>
 	<div id="box" class="box">		
@@ -197,12 +203,14 @@
 	}
 	timer = setInterval(next,3000);
 
-	var header = document.getElementsByClassName('header')[0];
 	var notice = document.getElementsByClassName('notice')[0];
 	window.onload = function(){
 		setInterval(function(){
 			var now = parseInt(getStyle(notice,'left'));
 			notice.style.left = now - 1 + "px";
+			if(notice.style.left == -980 + "px"){
+			notice.style.left = 980 + "px";
+		}
 		},30);		
 	}
 
